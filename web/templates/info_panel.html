@@ -18,23 +18,35 @@
     <div class="inner">
         <div id="header"></div>
         <br>
+        <label for="library">Library file</label>
         <input type="text" id="library" name="library" onchange="file_picked()"/>
-        <br>
+    </div>
+    <br>
+    <br>
+    <div class="inner">
         <button class="btn btn-primary" id="prevbutton" onClick="previous()" disabled>Prev</button>
         <button class="btn btn-primary" id="playbutton" onClick="play()" disabled>Play</button>
         <button class="btn btn-primary" id="playrandombutton" onClick="play_random()" disabled>Random Start</button>
         <button class="btn btn-primary" id="pausebutton" onClick="pause()" disabled>Pause</button>
         <button class="btn btn-primary" id="nextbutton" onClick="next()" disabled>Next</button>
         <button class="btn btn-primary" id="shufflebutton" onClick="shuffle()" disabled>Shuffle</button>
-        <br>
-        <br>
+    </div>
+    <br>
+    <br>
+    <div class="inner">
         <button class="btn btn-primary" id="animebutton" onClick="show_anime()" disabled>Anime</button>
         <button class="btn btn-primary" id="titlebutton" onClick="show_title()" disabled>Title</button>
         <button class="btn btn-primary" id="artistbutton" onClick="show_artist()" disabled>Artist</button>
     </div>
-    <h1 id="animetitle"></h1>
-    <h2 id="songtitle"></h2>
-    <h3 id="artist"></h3>
+    <br>
+    <br>
+    <div class="inner" align="center">
+        <h1 id="animetitle"></h1>
+        <br>
+        <h2 id="songtitle"></h2>
+        <br>
+        <h3 id="artist"></h3>
+    </div>
 </div>
 <script>
     var socket = io();

@@ -6,7 +6,7 @@ from flask_socketio import SocketIO
 import modules.library
 import modules.player
 
-app = Flask(__name__, static_folder='templates')
+app = Flask(__name__, template_folder='web/templates', static_folder='web/static')
 socketio = SocketIO(app, debug=True, cors_allowed_origins='*', async_mode='eventlet')
 
 
