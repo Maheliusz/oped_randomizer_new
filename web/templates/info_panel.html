@@ -37,6 +37,7 @@
         <button class="btn btn-primary" id="animebutton" onClick="show_anime()" disabled>Anime</button>
         <button class="btn btn-primary" id="titlebutton" onClick="show_title()" disabled>Title</button>
         <button class="btn btn-primary" id="artistbutton" onClick="show_artist()" disabled>Artist</button>
+        <button class="btn btn-primary" id="filebutton" onClick="show_file()" disabled>File</button>
     </div>
     <br>
     <br>
@@ -46,6 +47,8 @@
         <h2 id="songtitle"></h2>
         <br>
         <h3 id="artist"></h3>
+        <br>
+        <h6 id="filename"></h6>
     </div>
 </div>
 <script>
@@ -69,6 +72,7 @@
      document.getElementById("animebutton").disabled = false;
      document.getElementById("titlebutton").disabled = false;
      document.getElementById("artistbutton").disabled = false;
+     document.getElementById("filebutton").disabled = false;
     }
 
     function play() {
@@ -89,11 +93,19 @@
     function next() {
      socket.emit("next", function() {
      });
+    document.getElementById("animetitle").innerHTML = "";
+    document.getElementById("songtitle").innerHTML = "";
+    document.getElementById("artist").innerHTML = "";
+    document.getElementById("filename").innerHTML = "";
     }
 
     function previous() {
      socket.emit("previous", function() {
      });
+    document.getElementById("animetitle").innerHTML = "";
+    document.getElementById("songtitle").innerHTML = "";
+    document.getElementById("artist").innerHTML = "";
+    document.getElementById("filename").innerHTML = "";
     }
 
     function shuffle() {
@@ -122,6 +134,14 @@
         document.getElementById("artist").innerHTML = song_data.artist;
       } else {
         document.getElementById("artist").innerHTML = "";
+      }
+    }
+
+    function show_file(){
+      if(document.getElementById("filename").innerHTML === ""){
+        document.getElementById("filename").innerHTML = song_data.path;
+      } else {
+        document.getElementById("filename").innerHTML = "";
       }
     }
 
